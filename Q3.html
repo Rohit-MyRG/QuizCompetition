@@ -1,0 +1,79 @@
+<html5>
+<head><title>Quiz Competition</title>
+	<script type="text/javascript">
+	var value=localStorage.getItem("marks");
+	var m=value;var cnt=0;
+	function wrong()
+	{	
+		document.body.style.backgroundColor="red";
+		cnt++;
+		if(cnt==1)
+		{
+			m=Number(value)+50;
+			//localStorage.setItem("marks",m);
+		}
+		else if(cnt==2)
+		{
+			m=Number(value)+25;
+			//localStorage.setItem("marks",m);
+		}else if(cnt>2)
+			{
+				m=Number(value)+0;
+				//localStorage.setItem("marks",m);
+			}	
+	}
+	function ref()
+	{
+		document.body.style.backgroundColor="lightyellow";
+	}
+	function right()
+	{
+		document.body.style.backgroundColor="lightgreen";
+		document.fq1.dd.style.backgroundColor="yellow";
+		if(cnt==0)
+		{
+			m=Number(value)+100;
+			localStorage.setItem("marks",m);
+			document.getElementById("mark").innerHTML="Marks : "+m;
+		}else
+		{
+			localStorage.setItem("marks",m);
+			document.getElementById("mark").innerHTML="Marks : "+m;
+		}
+		document.getElementById("audi").src="rightsong_SD.mp3";
+	}
+	function show()
+	{
+		document.getElementById("audi").src="song3_SD.mp3";
+		document.getElementById("a").style.display="inline";
+		document.getElementById("b").style.display="inline";
+		document.getElementById("c").style.display="inline";
+		document.getElementById("d").style.display="inline";
+		document.getElementById("nex").style.display="inline";
+		document.getElementById("sho").style.display="none";
+	}
+	</script>
+	<style> marquee{ color:red; }</style>
+</head>
+<body bgcolor=lightyellow>
+<marquee>AM GEEK'S 2019 (Quiz Competition) </font></marquee><hr><br>
+<form method="post" name="fq1" align="center">
+<h2>
+	<font color=black size=7 face="Times new roman"> 
+	Q. 3) Which of these options will you not find on the Google homepage?
+	</font>
+</h2>	<hr>	<br>
+<input type="button" value="show" onclick="show()" id="sho"><br>
+<input type="button" value="A) Orkut " onclick="wrong()" id="a" style="font-family:Times New Roman; display:none; font-size:20px; height:50px; width:200px"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="button" value="B) Youtube " onclick="wrong()"  id="b" style="font-family:Times New Roman; display:none; font-size:20px; height:50px; width:200px"/><br><br>
+<input type="button" value="C) Gmail " onclick="wrong()" id="c" style="font-family:Times New Roman; display:none; font-size:20px; height:50px; width:200px"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="button" value="D) Facebook " onclick="right()" name="dd" id="d" style="font-family:Times New Roman; display:none; font-size:20px; height:50px; width:200px"/><br>
+
+<br>
+<br><input type="button" value="R" onclick="ref()">
+<a href="Q4.html"><input type="button" value="Next" id="nex" style="font-family:Times New Roman; display:none;"></a>
+<iframe src="song3_SD.mp3" id="audi" autoplay="1" style="display:none;"></iframe>
+</form>
+<font color="green" size="5" ><p id="mark"></p></font>
+</body>
+</html>

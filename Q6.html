@@ -1,0 +1,20 @@
+<html>
+<head>
+	<script type="text/javascript">
+	var value=localStorage.getItem("marks");
+	function show()
+	{
+		document.getElementById("demo").innerHTML="Your marks : "+value;
+		localStorage.setItem("group1",value);
+		document.getElementById("thank").innerHTML="Thank You";
+		document.getElementById("b1").style.display="none";
+	}
+	</script>
+</head>
+<body align="center"><br><br><br><br>
+<h1><p id="demo"></p></h1>
+<input type="button" id="b1" value="Show Marks" onclick="show()">
+<br>
+<h1 align="center" id="thank"><font size=100 color="red"></font></h1>
+</body>
+</html>
